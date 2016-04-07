@@ -1,8 +1,9 @@
 #logo {
-    margin: 3em auto;
+    margin: 3em auto 0 auto;
     width: 24em;
 }
 
 #content {
+    margin: 0 auto;
     padding: 1em;
 }
