@@ -42,7 +42,6 @@ main = hakyll $ do
             let posts = recentFirst =<< loadAllSnapshots "posts/*" "content"
             let indexCtx =
                     listField "posts" postCtx posts `mappend`
-                    constField "title" "Start"      `mappend`
                     defaultContext
 
             getResourceBody
