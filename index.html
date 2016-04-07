@@ -1,14 +1,28 @@
 ---
-title: Home
+title: Portal²
 ---
 
-<h2>Welcome</h2>
+<h2>Välkommen till DTEK!</h2>
 
-<p>Welcome to my blog!</p>
+<h3>Användbara länkar</h3>
 
-<p>I've reproduced a list of recent posts here for your reading pleasure:</p>
+<ul>
+  <li>Kalender
+  <li>Wiki
+  <li>Mat
+  <li>Kåren
+  <li>GitHub
+  <li>Datateknologer.se
+</ul>
 
-<h2>Posts</h2>
-$partial("templates/post-list.html")$
+<h3>Kontakt</h3>
+
+Ring presidiet pa <a href="tel:073-047 51 99">073-047 51 99</a>.
+
+<h2>Informationer</h2>
+$for(posts)$
+  <h3>$title$</h3>
+  $body$
+$endfor$
 
 <p>…or you can find more in the <a href="/archive.html">archives</a>.</p>
