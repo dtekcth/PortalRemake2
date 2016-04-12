@@ -9,6 +9,12 @@ Finguide!
 
 T.ex. genom `pacman -Sy ghc stack` eller genom att följa relevant guide här: https://github.com/commercialhaskell/stack/blob/master/doc/install_and_upgrade.md
 
+#### (Installera haskell)
+
+Om du inte redan har rätt GHC:
+
+    stack setup
+
 ### Bygg Hakyll
 
     stack build
