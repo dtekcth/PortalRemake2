@@ -19,6 +19,8 @@ Om du inte redan har rätt GHC:
 
     stack build
 
+(det kan ta en bra stund)
+
 ### Starta dev-servern
 
     stack exec dtek watch
