@@ -6,6 +6,15 @@ import Hakyll
 import Text.Pandoc.Options
 import Data.Default
 
+feedConfig :: FeedConfiguration
+feedConfig = FeedConfiguration
+    { feedTitle       = "Datateknologsektionen"
+    , feedDescription = "Nyheter från DTEK"
+    , feedAuthorName  = "Datateknologsektionen"
+    , feedAuthorEmail = "styret@dtek.se"
+    , feedRoot        = "http://dtek.se"
+    }
+
 main :: IO ()
 main = hakyll $ do
     match "images/*" $ do
@@ -23,6 +32,13 @@ main = hakyll $ do
             >>= saveSnapshot "content"
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls
+
+    create ["rss.xml"] $ do
+      route idRoute
+      compile $ do
+        let feedCtx = postCtx `mappend` bodyField "description"
+        posts <- recentFirst =<< loadAllSnapshots "posts/*" "content"
+        renderRss feedConfig feedCtx posts
 
     create ["archive.html"] $ do
         route idRoute
